@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to VM
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: pfrncs
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd /opt/slaystuff/projects/${{ github.event.repository.name }}
+            git pull
+            docker compose up --build -d

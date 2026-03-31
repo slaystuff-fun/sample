@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"  # Change 8000 to your project's assigned port
+    env_file:
+      - .env
+    networks:
+      - slaystuff
+
+networks:
+  slaystuff:
+    external: true

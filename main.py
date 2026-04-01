@@ -64,7 +64,7 @@ HTML = """
 
     <textarea id="input" placeholder="Enter text here..."></textarea>
     <br>
-    <button onclick="translate()">Eneratega!</button>
+    <button type="button" onclick="translate()">Eneratega!</button>
 
     <div id="output"></div>
 

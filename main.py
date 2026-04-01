@@ -64,7 +64,7 @@ HTML = """
 
     <textarea id="input" placeholder="Enter text here..."></textarea>
     <br>
-    <button type="button" onclick="translate()">Eneratega!</button>
+    <button type="button">Eneratega!</button>
 
     <div id="output"></div>
 
@@ -102,6 +102,9 @@ HTML = """
         document.getElementById('input').addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) translate();
         });
+
+        document.querySelector('button').addEventListener('click', translate);
+        
     </script>
 </body>
 </html>
